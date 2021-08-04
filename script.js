@@ -165,6 +165,11 @@ function getpassword4() {
   var specialCharacter = specialCharacters[specialIndex];
   var passwordtext = passwordtext.concact(specialCharacter);
 }
+getPassword();
+getpassword1();
+getpassword2();
+getpassword3();
+getpassword4();
 
 //variable declaration
 function generateIntChar() {
@@ -179,6 +184,7 @@ function generateIntChar() {
   }
   if (passwordOptions.specialCharacters === true) getpassword4();
 }
+generateIntChar();
 
 function randomchar() {
   var randomNumber = Math.floor(Math.random() * 4);
@@ -205,6 +211,7 @@ function randomchar() {
     randomchar();
   }
 }
+randomchar();
 
 var generateBtn = document.querySelector("#generate");
 addEventListener.writePassword;
@@ -222,6 +229,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = "Your password is: " + password;
 }
+writePassword();
 
 //Add event listener to generate button
 addEventListener("click", writePassword);

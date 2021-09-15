@@ -110,8 +110,8 @@ function getLength() {
   length = prompt(
     "How long do you want your password to be? Enter a number between 8 and 128"
   );
-  if (length < 8) alert("Password must be at least 8 characters`");
-  if (length > 128) alert("Password cannot be more than 128 characters"); // how do i make sure the user is only picking out of those options , no less than 8 and no more than 128
+  if (length < 8) confirm("Password must be at least 8 characters`");
+  if (length > 128) confirm("Password cannot be more than 128 characters"); // how do i make sure the user is only picking out of those options , no less than 8 and no more than 128
 }
 getLength();
 

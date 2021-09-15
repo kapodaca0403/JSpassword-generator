@@ -139,7 +139,7 @@ getConditions();
 // i need to be able to get random characters for the criteria and make a random password with the requests from the user
 
 function getPassword() {
-  return Math.floor(math.random() * getLength);
+  return Math.floor(Math.random() * getLength);
 }
 
 function getpassword1() {

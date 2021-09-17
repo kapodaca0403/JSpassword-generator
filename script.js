@@ -113,7 +113,7 @@ function getLength() {
   if (length < 8) confirm("Password must be at least 8 characters`");
   if (length > 128) confirm("Password cannot be more than 128 characters"); // how do i make sure the user is only picking out of those options , no less than 8 and no more than 128
 }
-getLength();
+//getLength();
 
 function getConditions() {
   alert(
@@ -134,9 +134,10 @@ function getConditions() {
     "Would you like to add special characters?"
   );
 }
-getConditions();
+//getConditions();
 
 // i need to be able to get random characters for the criteria and make a random password with the requests from the user
+var passwordtext = "";
 
 function getPassword() {
   return Math.floor(Math.random() * getLength);
@@ -145,31 +146,32 @@ function getPassword() {
 function getpassword1() {
   var lowercaseIndex = Math.floor(Math.random() * lowercase.length);
   var lowercaseCharacter = lowercase[lowercaseIndex];
-  var passwordtext = passwordtext.concat(lowercaseCharacter);
+  //console.log(lowercaseCharacter);
+  passwordtext = passwordtext + lowercaseCharacter;
 } // make function for each character , keep passwordtext in each function
 
 function getpassword2() {
   var uppercaseIndex = Math.floor(Math.random() * uppercase.length);
   var uppercaseCharacter = uppercase[uppercaseIndex];
-  var passwordtext = passwordtext.concat(uppercaseCharacter);
+  passwordtext = passwordtext + uppercaseCharacter;
 }
 
 function getpassword3() {
   var numericIndex = Math.floor(Math.random() * numeric.length);
-  var numericCharacter = numeric[numericindex];
-  var passwordtext = passwordtext.concat(numericCharacter);
+  var numericCharacter = numeric[numericIndex];
+  passwordtext = passwordtext + numericCharacter;
 }
 
 function getpassword4() {
-  var specialIndex = Math.floor(Math.random() * specialCharacters.index);
+  var specialIndex = Math.floor(Math.random() * specialCharacters.length);
   var specialCharacter = specialCharacters[specialIndex];
-  var passwordtext = passwordtext.concact(specialCharacter);
+  passwordtext = passwordtext + specialCharacter;
 }
-getPassword();
-getpassword1();
-getpassword2();
-getpassword3();
-getpassword4();
+// getPassword();
+// getpassword1();
+// getpassword2();
+// getpassword3();
+// getpassword4();
 
 //variable declaration
 function generateIntChar() {
@@ -184,7 +186,7 @@ function generateIntChar() {
   }
   if (passwordOptions.specialCharacters === true) getpassword4();
 }
-generateIntChar();
+//generateIntChar();
 
 function randomchar() {
   var randomNumber = Math.floor(Math.random() * 4);
@@ -211,25 +213,27 @@ function randomchar() {
     randomchar();
   }
 }
-randomchar();
+//randomchar();
 
 var generateBtn = document.querySelector("#generate");
-addEventListener.writePassword;
-getLength();
-getConditions();
+//addEventListener.writePassword;
 
 // Write password to the #password input
 function writePassword() {
+  getLength();
+  getConditions();
+
   while (passwordtext.length < length) {
+    console.log(passwordtext);
     generateIntChar();
-    randomchar();
+    // randomchar();
   }
 
-  var password = generatePassword(getLength + getConditions);
+  //var password = generatePassword(getLength + getConditions);
   var passwordText = document.querySelector("#password");
-  passwordText.value = "Your password is: " + password;
+  passwordText.value = "Your password is: " + passwordtext;
 }
-writePassword();
+//writePassword();
 
 //Add event listener to generate button
-addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
